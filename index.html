@@ -5,20 +5,28 @@
 <title>Click to Paint Dots</title>
 <style>
   body { font-family: Arial, sans-serif; text-align: center; }
-  #map-container {
-    width: 800px; height: 550px; margin: 20px auto;
-    border: 2px solid black; position: relative;
-    cursor: crosshair; overflow: hidden;
-  }
-  #map-container img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-  }
-  .dot {
-    position: absolute; width: 12px; height: 12px;
-    background-color: red; border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none; opacity: 0.1; /* 10% transparency */
-  }
+#map-container {
+  width: 800px;
+  height: 550px;
+  margin: 20px auto;
+  border: 2px solid black;
+  position: relative; /* needed for absolute children */
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 10; /* ensure dot is on top */
+}
+
 </style>
 </head>
 <body>
@@ -68,5 +76,6 @@
 
 </body>
 </html>
+
 
 
